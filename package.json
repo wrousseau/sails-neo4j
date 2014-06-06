@@ -1,34 +1,35 @@
 {
-  "name": "sails-neo4j",
-  "version": "0.1.1",
-  "description": "Neo4j adapter for Sails.js",
-  "main": "lib/adapter.js",
+  "name": "waterline-neo4j",
+  "version": "0.10.0",
+  "description": "neo4j adapter for Sails / Waterline",
+  "main": "adapter.js",
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "node test/integration/runner -R spec -b"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/natgeo/sails-neo4j.git"
-  },
+  "repository": {"type":"git","url":"git://github.com/balderdashy/waterline-%s.git"},
   "keywords": [
-    "orm",
-    "waterline",
-    "sails",
-    "sailsjs",
-    "sails.js",
     "neo4j",
-    "graph",
-    "database"
+    "adapter",
+    "sails",
+    "waterline",
+    "sails.js",
+    "plugin"
   ],
-  "author": "National Geographic Society",
+  "author": "balderdashy",
   "license": "MIT",
   "readmeFilename": "README.md",
-  "dependencies": {
-    "async": "0.1.22",
-    "neo4j-js": "git+https://github.com/natgeo/neo4j-js.git",
-    "q": "~0.9.7"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "~1.15.1"
+    "waterline-adapter-tests": "~0.10.0",
+    "mocha": "*",
+    "captains-log": "~0.11.0"
+  },
+  "waterlineAdapter": {
+    "type": "neo4j",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
   }
 }
