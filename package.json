@@ -26,7 +26,7 @@
     "lodash": "^2.4.1",
     "async": "^0.9.0",
     "waterline-errors": "^0.9.1",
-    "seraph-model": "git+https://github.com/wrousseau/seraph-model",
+    "seraph-model": "^0.6.13",
     "seraph": "^0.9.5"
   },
   "waterlineAdapter": {
