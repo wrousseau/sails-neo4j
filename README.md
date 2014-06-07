@@ -2,7 +2,7 @@
 
 # waterline-neo4j
 
-Provides easy access to `neo4j` from Sails.js & Waterline.
+Provides easy access to `neo4j` from Sails.js & Waterline, heavily relying on the great [seraph-model](https://github.com/brikteknologier/seraph-model).
 
 This module is a Waterline/Sails adapter, an early implementation of a rapidly-developing, tool-agnostic data standard.  Its goal is to provide a set of declarative interfaces, conventions, and best-practices for integrating with all sorts of data sources.  Not just databases-- external APIs, proprietary web services, or even hardware.
 
@@ -14,11 +14,10 @@ Strict adherence to an adapter specification enables the (re)use of built-in gen
 To install this adapter, run:
 
 ```sh
-$ npm install waterline-neo4j
+$ npm install git+https://github.com/wrousseau/sails-neo4j#beta
 ```
 
-
-
+When more functionnalities will be implemented (and tested hopefully), the package will be published on npm.
 
 ### Usage
 
@@ -27,12 +26,14 @@ This adapter exposes the following methods:
 ###### `find()`
 
 + **Status**
-  + Planned
+  + Implemented
+  + Case Insensitive behavior applied
 
 ###### `create()`
 
 + **Status**
-  + Planned
+  + Implemented
+  + createdAt and updatedAt are modified by seraph-model => change back required
 
 ###### `update()`
 
@@ -49,73 +50,25 @@ This adapter exposes the following methods:
 ### Interfaces
 
 >TODO:
->Specify the interfaces this adapter will support.
->e.g. `This adapter implements the [semantic]() and [queryable]() interfaces.`
-> For more information, check out this repository's [FAQ](./FAQ.md) and the [adapter interface reference](https://github.com/balderdashy/sails-docs/blob/master/adapter-specification.md) in the Sails docs.
-
-
-### Development
-
-Check out **Connections** in the Sails docs, or see the `config/connections.js` file in a new Sails project for information on setting up adapters.
-
-## Getting started
-It's usually pretty easy to add your own adapters for integrating with proprietary systems or existing open APIs.  For most things, it's as easy as `require('some-module')` and mapping the appropriate methods to match waterline semantics.  To get started:
-
-1. Fork this repository
-2. Set up your `README.md` and `package.json` file.  Sails.js adapter module names are of the form sails-*, where * is the name of the datastore or service you're integrating with.
-3. Build your adapter.
-
-
-
+>We are aiming at providing for now basic CRUD functionnalities.
+>A goal is to implement the [semantic]() and [queryable]() intefaces for now.
 
 ### Running the tests
 
 Configure the interfaces you plan to support (and targeted version of Sails/Waterline) in the adapter's `package.json` file:
 
-```javascript
-{
-  //...
-  "sails": {
-  	"adapter": {
-	    "sailsVersion": "~0.10.0",
-	    "implements": [
-	      "semantic",
-	      "queryable"
-	    ]
-	  }
-  }
-}
-```
-
-In your adapter's directory, run:
+In the adapter's directory (once it is installed for instance or if you just cloned the repository), run
 
 ```sh
 $ npm test
 ```
 
-
-## Publish your adapter
-
-> You're welcome to write proprietary adapters and use them any way you wish--
-> these instructions are for releasing an open-source adapter.
-
-1. Create a [new public repo](https://github.com/new) and add it as a remote (`git remote add origin git@github.com:yourusername/sails-youradaptername.git)
-2. Make sure you attribute yourself as the author and set the license in the package.json to "MIT".
-3. Run the tests one last time.
-4. Do a [pull request to sails-docs](https://github.com/balderdashy/sails-docs/compare/) adding your repo to `data/adapters.js`.  Please let us know about any special instructions for usage/testing.
-5. We'll update the documentation with information about your new adapter
-6. Then everyone will adore you with lavish praises.  Mike might even send you jelly beans.
-
-7. Run `npm version patch`
-8. Run `git push && git push --tags`
-9. Run `npm publish`
+Since the adapter does not yet fully implement any interface, no tests will be launched.
 
 
+### Issues, enhancements?
 
-
-### Questions?
-
-See [`FAQ.md`](./FAQ.md).
+Submit an issue, a pull request or better yet let's talk to expand this adapter.
 
 
 
